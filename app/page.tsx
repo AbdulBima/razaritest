@@ -3,6 +3,7 @@
 import React, { useState, useRef } from "react";
 import Webcam from "react-webcam";
 import axios from "axios";
+import Image from "next/image";
 
 const WebcamCapture: React.FC = () => {
   const [isCameraOpen, setIsCameraOpen] = useState(false);
@@ -22,6 +23,7 @@ const WebcamCapture: React.FC = () => {
     }
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
       setIsCameraOpen(true);
     } catch (error) {
@@ -103,7 +105,7 @@ const WebcamCapture: React.FC = () => {
       {capturedImage && (
         <div className="mt-4">
           <h3 className="text-lg font-semibold text-gray-700">Captured Image:</h3>
-          <img src={capturedImage} alt="Captured" className="mt-2 rounded-lg shadow-md max-w-xs" />
+          <Image width={200} height={200} unoptimized  src={capturedImage} alt="Captured" className="mt-2 rounded-lg shadow-md max-w-xs" />
         </div>
       )}
 

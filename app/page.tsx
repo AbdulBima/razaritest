@@ -49,7 +49,8 @@ const WebcamCapture: React.FC = () => {
             audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
-            videoConstraints={{ facingMode: "user" }} // Optional: Use the front camera if available
+            videoConstraints={{ facingMode: "environment" }}
+
           />
           <button
             onClick={capture}
